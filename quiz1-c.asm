@@ -8,7 +8,7 @@
 	.data
 n:	.float	144.0
 nval:	.asciiz	"n = "
-prompt:	.asciiz "enter n: \n"
+prompt:	.asciiz "enter n: "
 nroot:	.asciiz "\nsquare root of n = "
 zero:	.float 0.0
 
@@ -26,6 +26,11 @@ main:
 	syscall   # $f0 <= n
 	
 	add.s $f2, $f0, $f8
+
+    mov.s	$f12, $f2	
+	li	$v0, 2		# print value of n
+	syscall
+
 	li.s	$f3, 1.0	# constant 1.0
 	li.s	$f4, 2.0	# constant 2.0
 	li.s	$f5, 1.0	# x = first approx.
