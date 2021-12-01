@@ -8,9 +8,9 @@
 
 	.data
 prompt:	.asciiz		"Enter a value for x: \n"	
-prompta: .asciiz	"Enter a value for a: \n"	
-promptb: .asciiz	"Enter a value for b: \n"	
-promptc: .asciiz	"Enter a value for c: \n"	
+prompta: .asciiz	"\nEnter a value for a:"	
+promptb: .asciiz	"\nEnter a value for b:"	
+promptc: .asciiz	"\nEnter a value for c:"	
 zero:	.float	0.0
 
 	.text
@@ -26,6 +26,10 @@ main:
 	syscall   # $f0 <= x
 	
 	add.s $f5, $f0, $f6
+
+    mov.s $f12,$f5
+  	li $v0, 2
+  	syscall
 	
   
 	la	$a0, prompta
