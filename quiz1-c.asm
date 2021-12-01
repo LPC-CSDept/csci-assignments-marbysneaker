@@ -50,12 +50,7 @@ loop:	mov.s	$f6, $f2	# copy n to another register
 	j	loop		# go back to loop
 	nop
 
-end:	la	$a0, nval	# address of "n = "
-	li	$v0, 4		# print string code
-	syscall
-	mov.s	$f12, $f2	# copy n as print float arg
-	li	$v0, 2		# print float code
-	syscall
+end:
 	la	$a0, nroot	# print "square root of n = "
 	li	$v0, 4		# print string code
 	syscall
