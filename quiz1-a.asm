@@ -31,7 +31,7 @@ main:
 	cvt.s.w $f5, $f4  # $f5 = converted floating value
 
     li $v0, 4
-  	la $a0, faren
+  	la $a0, faren  #show farenheit input
   	syscall
 
     mov.s $f12, $f5
@@ -39,16 +39,16 @@ main:
 	syscall
 
 
-	l.s $f1, val1
-	l.s $f2, val2
-	l.s $f3, val3
+	l.s $f1, val1   # load constant 32 to f1 register
+	l.s $f2, val2   # load constant 5 to f2 register 
+	l.s $f3, val3   # load constant 9 to f3 register
 
   	sub.s $f1, $f5, $f1 # (Farenheit -32)
  	mul.s $f1, $f1, $f2 # (Farenheit -32)*5.0
   	div.s $f1, $f1, $f3 #((Farenheit -32)*5.0)/9.0
 
- 	li $v0, 4
-  	la $a0, lf
+ 	li $v0, 4 
+  	la $a0, lf      # show celcius
   	syscall
 
 	mov.s $f12, $f1 
