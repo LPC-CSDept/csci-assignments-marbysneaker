@@ -11,7 +11,8 @@
 
 	.data
 pr1:	.asciiz "Enter a Farenheit Degree\n"
-lf:	.asciiz	"Celsius:"
+faren: .asciiz " Farenheit: "
+lf:	.asciiz	"\n Celsius:"
 val1:	.float	32.0
 val2:	.float 	5.0
 val3: 	.float  9.0
