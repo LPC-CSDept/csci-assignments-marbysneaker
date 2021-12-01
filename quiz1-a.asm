@@ -11,8 +11,8 @@
 
 	.data
 pr1:	.asciiz "Enter a Farenheit Degree\n"
-faren: .asciiz " Farenheit: "
-lf:	.asciiz	"\n Celsius:"
+faren: .asciiz "Farenheit: "
+lf:	.asciiz	"\nCelsius:"
 val1:	.float	32.0
 val2:	.float 	5.0
 val3: 	.float  9.0
@@ -29,6 +29,10 @@ main:
 
 	mtc1 	$v0, $f4
 	cvt.s.w $f5, $f4  # $f5 = converted floating value
+
+    li $v0, 4
+  	la $a0, faren
+  	syscall
 
     mov.s $f12, $f5
 	li  $v0, 2 	# print single
