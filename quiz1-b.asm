@@ -10,7 +10,7 @@
 prompt:	.asciiz		"Enter a value for x: \n"	
 prompta: .asciiz	"\nEnter a value for a:"	
 promptb: .asciiz	"\nEnter a value for b:"	
-promptc: .asciiz	"\nEnter a value for c:"	
+promptc: .asciiz	"\nEnter a value for c:\n"	
 zero:	.float	0.0
 
 	.text
@@ -28,7 +28,7 @@ main:
 	add.s $f5, $f0, $f6
 
     mov.s $f12,$f5
-  	li $v0, 2
+  	li $v0, 2           # print value of x
   	syscall
 	
   
@@ -40,6 +40,10 @@ main:
 	syscall   # $f0 <= a
 	
 	add.s $f1, $f0, $f6
+
+    mov.s $f12,$f1
+  	li $v0, 2           # print value of a
+  	syscall
 
 	la	$a0, promptb
 	li	$v0, 4
