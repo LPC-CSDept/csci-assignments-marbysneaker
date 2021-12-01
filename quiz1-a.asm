@@ -30,6 +30,11 @@ main:
 	mtc1 	$v0, $f4
 	cvt.s.w $f5, $f4  # $f5 = converted floating value
 
+    mov.s $f12, $f5
+	li  $v0, 2 	# print single
+	syscall
+
+
 	l.s $f1, val1
 	l.s $f2, val2
 	l.s $f3, val3
