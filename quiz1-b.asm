@@ -7,11 +7,11 @@
 
 
 	.data
-prompt:	.asciiz		"Enter a value for x: \n"	
-prompta: .asciiz	"\nEnter a value for a:"	
-promptb: .asciiz	"\nEnter a value for b:"	
-promptc: .asciiz	"\nEnter a value for c:\n"	
-equation: .asciiz    " ax^2 + bx + c = "
+prompt:	.asciiz		"Enter a value for x: " 	
+prompta: .asciiz	"\nEnter a value for a: "	
+promptb: .asciiz	"\nEnter a value for b: "	
+promptc: .asciiz	"\nEnter a value for c: "	
+equation: .asciiz    "\nax^2 + bx + c = "
 zero:	.float	0.0
 
 	.text
