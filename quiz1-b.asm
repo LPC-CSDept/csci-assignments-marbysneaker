@@ -11,6 +11,7 @@ prompt:	.asciiz		"Enter a value for x: \n"
 prompta: .asciiz	"\nEnter a value for a:"	
 promptb: .asciiz	"\nEnter a value for b:"	
 promptc: .asciiz	"\nEnter a value for c:\n"	
+equation: .asciiz    " ax^2 + bx + c = "
 zero:	.float	0.0
 
 	.text
@@ -66,6 +67,10 @@ main:
 	syscall   # $f0 <= c
 	
 	add.s $f3 $f0, $f6
+
+    mov.s $f12,$f3
+  	li $v0, 2           # print value of c
+  	syscall
 	
 
 	# $f4 = ax^2
@@ -80,8 +85,12 @@ main:
   	add.s $f4, $f2, $f4   # $f4 = ax^2 + bx
   	add.s $f4, $f4, $f3   # $f4 = ax^2 + bx + c
   
+    la	$a0, equation
+	li	$v0, 4      # print equation 
+	syscall
+
   	mov.s $f12,$f4
-  	li $v0, 2
+  	li $v0, 2       # print answer
   	syscall
 
   
