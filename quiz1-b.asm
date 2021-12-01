@@ -54,6 +54,10 @@ main:
 	
 	add.s $f2, $f0, $f6
 
+    mov.s $f12,$f2
+  	li $v0, 2           # print value of b
+  	syscall
+
 	la	$a0, promptc
 	li	$v0, 4
 	syscall
