@@ -22,9 +22,20 @@ wait:
     andi	$t0, $t1, 0	
     beq		$t0, $t1, wait
     lw      $s0, 4($t0)
-    
-    
 
+    sub     $s0, $s0, 48    # s0 = v0 -48
+    sub     $t9, $t9, 1
+    beq		$t9, $s0, 10
+
+    mul     $s1, $s0, 10
+
+    b   wait
+    
+    
+    
+read:
+    li      $v0, 10         # end program
+    syscall                 # return to OS
 
 
 
