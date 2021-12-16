@@ -32,13 +32,13 @@ wait:
     sub     $t3, $t3, 1     # subtracting 3 -1 for every loop
     beq		$t3, $zero,read # if state ment if t3 == 0 branch to read
 
-    mul     $s1, $s0, 10    # get second digit
+    mul     $s1, $s0, 10    # get second digit store it in s1
    
 
     b   wait
     
 third_num:
-    mul     $s2, $s0, 100  #get first digit
+    mul     $s2, $s0, 100  # get first digit store it in s2
     sub     $t3, $t3, 1
     b		wait			# branch to wait
     
