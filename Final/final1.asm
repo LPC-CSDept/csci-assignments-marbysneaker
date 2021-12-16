@@ -27,17 +27,17 @@ wait:
     sub     $t3, $t3, 1
     beq		$t3, $zero,read
 
-    mul     $s1, $s0, 10    # get first digit
-    srl     $s2, $s1, 1   # get second digit
-    mul     $s2, $s2, 10
+    mul     $s1, $s0, 10    # get second digit
+    srl     $s2, $s1, 1   
+    mul     $s2, $s2, 10    # get first digit
 
     b   wait
     
     
     
 read:
-    add		$a0, $s1, $s0   
-    add		$a0, $$a0, $s2
+    add		$a0, $s1, $s0   # add 3rd and 2nd digit to register a0
+    add		$a0, $$a0, $s2  # add 1st digit to a0
     li      $v0, 1
     syscall
     
