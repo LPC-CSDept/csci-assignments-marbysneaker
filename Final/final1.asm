@@ -28,7 +28,8 @@ wait:
     beq		$t3, $zero,read
 
     mul     $s1, $s0, 10    # get first digit
-    mul     $s2, $s1, 10    # get second digit
+    srl     $s2, $s1, 1   # get second digit
+    mul     $s2, $s2, 10
 
     b   wait
     
