@@ -4,7 +4,7 @@
 
     .data
 
-msg1: .asciiz "\n Enter your number "
+msg1: .asciiz "\nEnter your number:  "
 
     .data
 num3: .word 3
@@ -16,7 +16,10 @@ num3: .word 3
 main:
     lw      $t3, num3
     lui     $t0, 0xffff     # load upper immediate
-
+    li		$v0, 4 
+    la		$a0, msg1
+    syscall		
+    		
 wait:
     lw		$t1, 0($t0)
     andi 	$t1, $t1, 0x0001
