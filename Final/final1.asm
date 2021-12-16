@@ -19,20 +19,25 @@ main:
 
 wait:
     lw		$t1, 0($t0)
-    andi 	$t1, $t1, 0x000
+    andi 	$t1, $t1, 0x0001
     beq		$t1, $zero, wait
     lw		$s0, 4($t0)
 
     sub     $s0, $s0, 48    # s0 = v0 -48
+
+    beq     $t3, 3, third_num
     sub     $t3, $t3, 1     # subtracting 3 -1 for every loop
     beq		$t3, $zero,read # if state ment if t3 == 0 branch to read
 
     mul     $s1, $s0, 10    # get second digit
-    srl     $s2, $s1, 1   
-    mul     $s2, $s2, 10    # get first digit
+   
 
     b   wait
     
+third_num:
+    mul     $s2, $s0, 100  #get first digit
+    sub     $t3, $t3, 1
+    b		wait			# branch to wait
     
     
 read:
