@@ -24,16 +24,22 @@ wait:
     lw      $s0, 4($t0)
 
     sub     $s0, $s0, 48    # s0 = v0 -48
-    sub     $t9, $t9, 1
-    beq		$t9, $s0, 10
+    sub     $t3, $t3, 1
+    beq		$t3, $zero,read
 
-    mul     $s1, $s0, 10
+    mul     $s1, $s0, 10    # get first digit
+    mul     $s2, $s1, 10    # get second digit
 
     b   wait
     
     
     
 read:
+    add		$a0, $s1, $s0   
+    add		$a0, $$a0, $s2
+    li      $v0, 1
+    syscall
+    
     li      $v0, 10         # end program
     syscall                 # return to OS
 
@@ -48,5 +54,3 @@ read:
 
 
 
-
-loop:
