@@ -8,7 +8,8 @@ s1:     .word 10
 s2:     .word 11
 
 new_line:   .asciiz     "\n"
-testing:    .asciiz     "q was entered\n"
+quitmessage: .asciiz	"\nq is entered and program ended"
+		
 
         .text
         .globl  main
@@ -49,3 +50,15 @@ here:
 		lw     	$a0, 4($v0)   # 	get the input key   
 		li  	$v0, 1 		#   print it here.      
 		syscall   
+
+        lui     $v0, 0xFFFF    	#   $v0 =   0xFFFF0000     
+		lw     	$a0, 4($v0)   # 	get the input key   
+		li 	$v0, 1 		#   print it here.      
+		syscall  
+
+		
+		beq	$a0, 113, done		#check to see if 'q' is entered which equals to 113 then branch
+
+		li $v0,4     			#   print the new line     
+		la $a0,   new_line
+		syscall  
