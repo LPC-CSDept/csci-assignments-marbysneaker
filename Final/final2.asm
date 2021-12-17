@@ -49,11 +49,6 @@ here:
 		lui     $v0, 0xFFFF    	#   $v0 =   0xFFFF0000     
 		lw     	$a0, 4($v0)   # 	get the input key   
 		li  	$v0, 1 		#   print it here.      
-		syscall   
-
-        lui     $v0, 0xFFFF    	#   $v0 =   0xFFFF0000     
-		lw     	$a0, 4($v0)   # 	get the input key   
-		li 	$v0, 1 		#   print it here.      
 		syscall  
 
 		
