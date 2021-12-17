@@ -72,3 +72,9 @@ kdone:
 		ori     $k0, 0x11     	#   Interrupts enabled     
 		mtc0 	$k0, $12     	#   write back to status     
 		eret    			 	# return to EPC \
+
+done:
+		li	$v0, 4
+		la $a0, quitmessage	#load exit message and print
+		syscall   
+		li 	$v0, 10     #   end program
