@@ -62,3 +62,13 @@ here:
 		li $v0,4     			#   print the new line     
 		la $a0,   new_line
 		syscall  
+
+kdone:     	
+		lw     	$v0, s1     		# Restore other registers     
+		lw     	$a0, s2     
+		mtc0 	$0, $13     	#   Clear Cause register     
+		mfc0 	$k0, $12     	# Set Status register     
+		andi    $k0, 0xfffd  	# clear EXL bit d = 1101   
+		ori     $k0, 0x11     	#   Interrupts enabled     
+		mtc0 	$k0, $12     	#   write back to status     
+		eret    			 	# return to EPC \
